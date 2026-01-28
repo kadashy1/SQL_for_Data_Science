@@ -14,11 +14,17 @@ Actor1:             person 1 who acted in the films,
 Actor2:             person 2 who acted in the films, 
 Actor3:             person 3 who acted in the films
 )
- 
-Practice exercises on the SELECT statement: 
+
 SELECT * FROM FilmLocations;
 SELECT Title, Director, Writer FROM FilmLocations;
 SELECT Title, ReleaseYear, Locations FROM FilmLocations WHERE ReleaseYear>=2001;
 SELECT Locations, FunFacts FROM FilmLocations;
 SELECT Title, ReleaseYear, Locations FROM FilmLocations WHERE ReleaseYear<=2000;
 SELECT Title, ProductionCompany, Locations, ReleaseYear FROM FilmLocations WHERE Writer<>"James Cameron";
+
+
+Use SELECT statements to retrieve specified columns or rows of data from the table.
+Use FROM statements to specify the table from which to retrieve the data.
+Use WHERE statements to filter the required data based on a predicate.
+Use "*" to retrieve all columns from a table without specifying individual column names.
+Use a combination of these statements to execute more complex queries on the database.
