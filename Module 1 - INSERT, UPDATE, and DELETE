@@ -1,0 +1,47 @@
+#How does the syntax of an INSERT statement look?
+INSERT INTO table_name (column1, column2, ... )
+VALUES (value1, value2, ... )
+;
+
+#How does the syntax of an UPDATE statement look?
+UPDATE table_name
+SET column1 = value1, column2 = value2, ...
+WHERE condition
+;
+
+#How does the syntax of a DELETE statement look?
+DELETE FROM table_name
+WHERE condition
+;
+
+Database: unique identification number of the instructors as Instructor
+
+SELECT * FROM Instructor;
+
+INSERT INTO Instructor(ins_id, lastname, firstname, city, country)
+VALUES(4, 'Saha', 'Sandip', 'Edmonton', 'CA');
+
+INSERT INTO Instructor(ins_id, lastname, firstname, city, country)
+VALUES(5, 'Doe', 'John', 'Sydney', 'AU'), (6, 'Doe', 'Jane', 'Dhaka', 'BD');
+
+INSERT INTO Instructor(ins_id, lastname, firstname, city, country)
+VALUES(7, 'Cangiano', 'Antonio', 'Vancouver', 'CA');
+SELECT * FROM Instructor;
+
+INSERT INTO Instructor(ins_id, lastname, firstname, city, country)
+VALUES(8, 'Ryan', 'Steve', 'Barlby', 'GB'), (9, 'Sannareddy', 'Ramesh', 'Hyderabad', 'IN');
+SELECT * FROM Instructor;
+
+UPDATE Instructor 
+SET city='Markham'
+WHERE ins_id=1;
+SELECT * FROM Instructor;
+
+UPDATE Instructor 
+SET city='Dhaka', country='BD'
+WHERE ins_id=4;
+SELECT * FROM Instructor;
+
+DELETE FROM instructor
+WHERE firstname = 'Hima';
+SELECT * FROM Instructor;
