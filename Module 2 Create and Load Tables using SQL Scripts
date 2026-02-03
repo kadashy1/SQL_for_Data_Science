@@ -1,0 +1,90 @@
+Task 1: Create a Cadio-Vascular Diseases(CVD) database in MySQL using the phpMyAdmin GUI.
+#To create a database click MySQL in the database section, then create.
+#In the tree view, click New to create a new empty database. Then, enter CVD as the name of the database and click Create. Leave the default utf8 encoding.
+
+Task 2: Create all the tables in My SQL using an SQL script.
+#SQL script code is imported from a .SQL file to the CVD database we just created.
+DROP TABLE IF EXISTS PATIENTS;
+DROP TABLE IF EXISTS MEDICAL_HISTORY;
+DROP TABLE IF EXISTS MEDICAL_PROCEDURES;
+DROP TABLE IF EXISTS MEDICAL_DEPARTMENTS;
+DROP TABLE IF EXISTS MEDICAL_LOCATIONS;
+
+
+CREATE TABLE PATIENTS (
+  PATIENT_ID CHAR(9) NOT NULL,
+  FIRST_NAME VARCHAR(15) NOT NULL,
+  LAST_NAME VARCHAR(15) NOT NULL,
+  SSN CHAR(9),
+  BIRTH_DATE DATE,
+  SEX CHAR,
+  ADDRESS VARCHAR(30),
+  DEPT_ID CHAR(9) NOT NULL,
+  PRIMARY KEY (PATIENT_ID)
+);
+
+CREATE TABLE MEDICAL_HISTORY (
+  MEDICAL_HISTORY_ID CHAR(9) NOT NULL,
+  PATIENT_ID CHAR(9) NOT NULL,
+  DIAGNOSIS_DATE DATE,
+  DIAGNOSIS_CODE VARCHAR(10),
+  MEDICAL_CONDITION VARCHAR(100),
+  DEPT_ID CHAR(9),
+  PRIMARY KEY (MEDICAL_HISTORY_ID)
+);
+
+CREATE TABLE MEDICAL_PROCEDURES (
+  PROCEDURE_ID CHAR(9) NOT NULL,
+  PROCEDURE_NAME VARCHAR(30),
+  PROCEDURE_DATE DATE,
+  PATIENT_ID CHAR(9) NOT NULL,
+  DEPT_ID CHAR(9),
+  PRIMARY KEY (PROCEDURE_ID)
+);
+
+CREATE TABLE MEDICAL_DEPARTMENTS (
+  DEPT_ID CHAR(9) NOT NULL,
+  DEPT_NAME VARCHAR(50),
+  MANAGER_ID CHAR(9),
+  LOCATION_ID CHAR(9),
+  PRIMARY KEY (DEPT_ID)
+);
+
+CREATE TABLE MEDICAL_LOCATIONS (
+  LOCATION_ID CHAR(9) NOT NULL,
+  DEPT_ID CHAR(9) NOT NULL,
+  LOCATION_NAME VARCHAR(50),
+  PRIMARY KEY (LOCATION_ID, DEPT_ID)
+);
+
+Task 3 Populate each table with the data in respective CSV files.
+#The data we are using is then imported from a .CSV file into their respective tables
+#MEDICAL DEPARTMENTS
+D001,Cardiology,NULL,L001
+D002,Internal Medicine,NULL,L002
+D003,Cardiothoracic Surgery,NULL,L001
+D004,Electrophysiology,NULL,L002
+#MEDICAL HISTORY
+MH001,P001,2022-12-10,I20.0,Coronary Artery Disease,D001
+MH002,P001,2023-07-30,I25.10,Hypertensive Heart Disease,D002
+MH003,P002,2023-08-01,I25.10,Hypertensive Heart Disease,D002
+MH004,P003,2023-08-01,I20.9,Unstable Angina,D003
+MH005,P004,2023-08-01,I25.5,Ischemic Cardiomyopathy,D004
+MH006,P005,2023-08-02,I50.9,"HeartFailure, Unspecified",D003
+#MEDICAL LOCATIONS
+L001,D001,City Hospital
+L002,D002,Medical Center
+#MEDICAL PROCEDURES
+PR001,Angioplasty,2023-07-30,P001,D002
+PR002,Cardiac Catheterization,2023-08-01,P002,D002
+PR003,Electrocardiogram,2023-08-02,P003,D003
+PR004,Echocardiogram,2023-08-03,P004,D004
+PR005,Stress Test,2023-08-03,P005,D003
+PR006,Coronary Angiogram,2023-08-04,P003,D003
+PR007,Pacemaker Implantation,2023-08-04,P005,D003
+#PATIENTS
+P001,John,Doe,123456789,1990-05-15,M,123 Main St,D001
+P002,Jane,Smith,987654321,1985-10-20,F,456 Oak Ave,D002
+P003,Michael,Johnson,111222333,1975-03-12,M,789 Elm St,D003
+P004,Emily,Brown,444555666,1980-09-25,F,321 Pine Rd,D004
+P005,William,Miller,777888999,1992-11-18,M,567 Maple Ave,D003
