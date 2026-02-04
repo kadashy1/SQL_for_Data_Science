@@ -14,7 +14,7 @@ DELETE FROM table_name
 WHERE condition
 ;
 
-Database: unique identification number of the instructors as Instructor
+#Database: unique identification number of the instructors as Instructor
 
 SELECT * FROM Instructor;
 
