@@ -1,4 +1,4 @@
-Database: SanFranciscoFilmLocations as FilmLocations
+#Database: SanFranciscoFilmLocations as FilmLocations
 
 SELECT * FROM FilmLocations;
 SELECT COUNT(*) FROM FilmLocations;
@@ -18,7 +18,7 @@ SELECT DISTINCT Title FROM FilmLocations WHERE ReleaseYear=2015 LIMIT 10;
 SELECT DISTINCT Title FROM FilmLocations WHERE ReleaseYear=2015 LIMIT 3 OFFSET 5;
 
 
-Use COUNT statements to determine the number of entries in a database based on filtering conditions.
-Use DISTINCT statements to determine the unique entries in a database based on filtering conditions.
-Use LIMIT statements to restrict the response to a desired set of rows based on filtering conditions.
-Use a combination of these statements to execute more complex queries on the database.
+#Use COUNT statements to determine the number of entries in a database based on filtering conditions.
+#Use DISTINCT statements to determine the unique entries in a database based on filtering conditions.
+#Use LIMIT statements to restrict the response to a desired set of rows based on filtering conditions.
+#Use a combination of these statements to execute more complex queries on the database.
